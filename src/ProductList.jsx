@@ -246,6 +246,12 @@ const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowCart(false);
   };
+
+  const filterPlants = (plantsType) => {
+    const thisTypePlants = plantsArray.filter((item) => item.category === plantsType);
+    console.log(thisTypePlants.plants[0].name);
+    return thisTypePlants.plants;
+  }
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -267,13 +273,30 @@ const handlePlantsClick = (e) => {
             </div>
         </div>
         {!showCart? (
-        <div className="product-grid">
-
-
-        </div>
- ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
-)}
+          <div className="product-grid">
+            <div>
+              <div className="plantname_heading">
+                <h1 className="plant_heading"> Air Purifying Plants </h1> 
+              </div>
+              <div className="product-list">
+                {plantsArray[0].plants.map((item, index) => (
+                   <div className="product-card" key={index}>
+                   <div className="product-title">{item.name}</div>
+                   <div className="product-image">
+                     <img src={item.image}/>
+                   </div>
+                   <div className="product-price">${item.cost}</div>
+                   <div >{item.description}</div>
+                   <button className="product-button">Add to cart</button>
+                 </div>
+                )
+                )}
+              </div>
+            </div>
+          </div>
+        ) :  (
+          <CartItem onContinueShopping={handleContinueShopping}/>
+          )}
     </div>
     );
 }
