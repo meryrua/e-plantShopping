@@ -247,11 +247,7 @@ const handlePlantsClick = (e) => {
     setShowCart(false);
   };
 
-  const filterPlants = (plantsType) => {
-    const thisTypePlants = plantsArray.filter((item) => item.category === plantsType);
-    console.log(thisTypePlants.plants[0].name);
-    return thisTypePlants.plants;
-  }
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
