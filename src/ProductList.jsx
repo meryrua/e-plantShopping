@@ -247,7 +247,6 @@ const handlePlantsClick = (e) => {
     setShowCart(false);
   };
 
-
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -270,101 +269,22 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
           <div className="product-grid">
-            <div>
-              <div className="plantname_heading">
-                <h1 className="plant_heading">{plantsArray[0].category}</h1> 
+            {plantsArray.map((category, index) => (
+              <div key={index}>
+                <h1><div>{category.category}</div></h1>
+                <div className="product-list">
+                  {category.plants.map((plant, plantIndex) => (
+                    <div className="product-card" key={plantIndex}>
+                      <img className="product-image" src={plant.image} alt={plant.name} />
+                      <div className="product-title">{plant.name}</div>
+                      <div className="product-price">${plant.cost}</div>
+                      {/*Similarly like the above plant.name show other details like description and cost*/}
+                      <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="product-list">
-                {plantsArray[0].plants.map((item, index) => (
-                   <div className="product-card" key={index}>
-                   <div className="product-title">{item.name}</div>
-                   <div className="product-image">
-                     <img src={item.image}/>
-                   </div>
-                   <div className="product-price">${item.cost}</div>
-                   <div >{item.description}</div>
-                   <button className="product-button">Add to cart</button>
-                 </div>
-                )
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="plantname_heading">
-                <h1 className="plant_heading">{plantsArray[1].category}</h1> 
-              </div>
-              <div className="product-list">
-                {plantsArray[1].plants.map((item, index) => (
-                   <div className="product-card" key={index}>
-                   <div className="product-title">{item.name}</div>
-                   <div className="product-image">
-                     <img src={item.image}/>
-                   </div>
-                   <div className="product-price">${item.cost}</div>
-                   <div >{item.description}</div>
-                   <button className="product-button">Add to cart</button>
-                 </div>
-                )
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="plantname_heading">
-                <h1 className="plant_heading">{plantsArray[2].category}</h1> 
-              </div>
-              <div className="product-list">
-                {plantsArray[2].plants.map((item, index) => (
-                   <div className="product-card" key={index}>
-                   <div className="product-title">{item.name}</div>
-                   <div className="product-image">
-                     <img src={item.image}/>
-                   </div>
-                   <div className="product-price">${item.cost}</div>
-                   <div >{item.description}</div>
-                   <button className="product-button">Add to cart</button>
-                 </div>
-                )
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="plantname_heading">
-                <h1 className="plant_heading">{plantsArray[3].category}</h1> 
-              </div>
-              <div className="product-list">
-                {plantsArray[3].plants.map((item, index) => (
-                   <div className="product-card" key={index}>
-                   <div className="product-title">{item.name}</div>
-                   <div className="product-image">
-                     <img src={item.image}/>
-                   </div>
-                   <div className="product-price">${item.cost}</div>
-                   <div >{item.description}</div>
-                   <button className="product-button">Add to cart</button>
-                 </div>
-                )
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="plantname_heading">
-                <h1 className="plant_heading">{plantsArray[4].category}</h1> 
-              </div>
-              <div className="product-list">
-                {plantsArray[4].plants.map((item, index) => (
-                   <div className="product-card" key={index}>
-                   <div className="product-title">{item.name}</div>
-                   <div className="product-image">
-                     <img src={item.image}/>
-                   </div>
-                   <div className="product-price">${item.cost}</div>
-                   <div >{item.description}</div>
-                   <button className="product-button">Add to cart</button>
-                 </div>
-                )
-                )}
-              </div>
-            </div>
+             ))}
           </div>
         ) :  (
           <CartItem onContinueShopping={handleContinueShopping}/>
