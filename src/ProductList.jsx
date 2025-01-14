@@ -276,10 +276,86 @@ const handlePlantsClick = (e) => {
           <div className="product-grid">
             <div>
               <div className="plantname_heading">
-                <h1 className="plant_heading"> Air Purifying Plants </h1> 
+                <h1 className="plant_heading">{plantsArray[0].category}</h1> 
               </div>
               <div className="product-list">
                 {plantsArray[0].plants.map((item, index) => (
+                   <div className="product-card" key={index}>
+                   <div className="product-title">{item.name}</div>
+                   <div className="product-image">
+                     <img src={item.image}/>
+                   </div>
+                   <div className="product-price">${item.cost}</div>
+                   <div >{item.description}</div>
+                   <button className="product-button">Add to cart</button>
+                 </div>
+                )
+                )}
+              </div>
+            </div>
+            <div>
+              <div className="plantname_heading">
+                <h1 className="plant_heading">{plantsArray[1].category}</h1> 
+              </div>
+              <div className="product-list">
+                {plantsArray[1].plants.map((item, index) => (
+                   <div className="product-card" key={index}>
+                   <div className="product-title">{item.name}</div>
+                   <div className="product-image">
+                     <img src={item.image}/>
+                   </div>
+                   <div className="product-price">${item.cost}</div>
+                   <div >{item.description}</div>
+                   <button className="product-button">Add to cart</button>
+                 </div>
+                )
+                )}
+              </div>
+            </div>
+            <div>
+              <div className="plantname_heading">
+                <h1 className="plant_heading">{plantsArray[2].category}</h1> 
+              </div>
+              <div className="product-list">
+                {plantsArray[2].plants.map((item, index) => (
+                   <div className="product-card" key={index}>
+                   <div className="product-title">{item.name}</div>
+                   <div className="product-image">
+                     <img src={item.image}/>
+                   </div>
+                   <div className="product-price">${item.cost}</div>
+                   <div >{item.description}</div>
+                   <button className="product-button">Add to cart</button>
+                 </div>
+                )
+                )}
+              </div>
+            </div>
+            <div>
+              <div className="plantname_heading">
+                <h1 className="plant_heading">{plantsArray[3].category}</h1> 
+              </div>
+              <div className="product-list">
+                {plantsArray[3].plants.map((item, index) => (
+                   <div className="product-card" key={index}>
+                   <div className="product-title">{item.name}</div>
+                   <div className="product-image">
+                     <img src={item.image}/>
+                   </div>
+                   <div className="product-price">${item.cost}</div>
+                   <div >{item.description}</div>
+                   <button className="product-button">Add to cart</button>
+                 </div>
+                )
+                )}
+              </div>
+            </div>
+            <div>
+              <div className="plantname_heading">
+                <h1 className="plant_heading">{plantsArray[4].category}</h1> 
+              </div>
+              <div className="product-list">
+                {plantsArray[4].plants.map((item, index) => (
                    <div className="product-card" key={index}>
                    <div className="product-title">{item.name}</div>
                    <div className="product-image">
