@@ -269,6 +269,20 @@ const handlePlantsClick = (e) => {
      }));
   };
 
+  const removeFromCart = (product) => {
+    setAddedToCart(state.addedToCart.filter(item => item.name !== product.name));
+  }
+
+  const button = (item) => {
+    var button;
+    if (addedToCart[item.name] != true) {
+        button = <button  className="product-button" onClick={() => handleAddToCart(item)}>Add to Cart</button>
+    } else {
+        button = <button  className="product-button.added-to-cart" disabled>Added to Cart</button>  
+    }
+    return button;
+  }
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -317,8 +331,9 @@ const handlePlantsClick = (e) => {
                       <div>
                         <em> {plant.description}</em>
                       </div>
-                      {/*Similarly like the above plant.name show other details like description and cost*/}
-                      <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                      <div>
+                        {button(plant)} 
+                      </div>
                     </div>
                   ))}
                 </div>
